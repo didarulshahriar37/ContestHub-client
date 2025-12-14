@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from "../../assets/logo.png";
 import { Link, NavLink } from 'react-router';
 import { FaUser } from 'react-icons/fa';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import { AuthContext } from '../../contexts/AuthContext';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = (e) => {
+        e.preventDefault();
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    title: "Logged Out successfully",
+                    icon: "success",
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${error.message}`,
+                });
+            })
+    }
 
     const lists = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -38,16 +60,21 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <div className='flex items-center gap-2'>
-                    <FaUser className='w-5 h-5' />
-                    <div className='flex items-center gap-2'>
-                        <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost m-1">User <IoMdArrowDropdown /></div>
-                            <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                                <li><a>Login</a></li>
-                                <li><a>Register</a></li>
-                            </ul>
+                    {
+                        user ?<> <img className='w-10 h-10 rounded-full' src={user.photoURL} alt={user.displayName} /> <button onClick={handleSignOut} className='btn'> Logout </button></> : <FaUser className='w-5 h-5' />
+                        
+                    }
+                    {
+                        user ? "" : <div className='flex items-center gap-2'>
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost m-1">User <IoMdArrowDropdown /></div>
+                                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                                    <li><Link to="/auth/login">Login</Link></li>
+                                    <li><Link to="/auth/register">Register</Link></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
