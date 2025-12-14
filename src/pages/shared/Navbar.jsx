@@ -41,7 +41,7 @@ const Navbar = () => {
                     <FaUser className='w-5 h-5' />
                     <div className='flex items-center gap-2'>
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn m-1">User <IoMdArrowDropdown /></div>
+                            <div tabIndex={0} role="button" className="btn btn-ghost m-1">User <IoMdArrowDropdown /></div>
                             <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                                 <li><a>Login</a></li>
                                 <li><a>Register</a></li>
