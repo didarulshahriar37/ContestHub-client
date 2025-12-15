@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from './SocialLogin';
 import axios from 'axios';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
@@ -10,33 +12,61 @@ const Register = () => {
     const { registerUser, updateUserProfile } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
 
     const handleRegistration = (data) => {
 
         const profileImg = data.photo[0];
 
         registerUser(data.email, data.password)
-            .then(result => {
+            .then(() => {
+
                 const formData = new FormData();
                 formData.append('image', profileImg);
 
                 axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_img_host_key}`, formData)
                     .then(res => {
+                        const photoURL = res.data.data.url;
+
+                        const userInfo = {
+                            email: data.email,
+                            displayName: data.name,
+                            photoURL: photoURL
+                        }
+
+                        axiosSecure.post("/users", userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    Swal.fire({
+                                        title: "User created successfully",
+                                        icon: "success",
+                                    });
+                                }
+                            })
+
                         const userProfile = {
                             displayName: data.name,
-                            photoURL: res.data.data.url
+                            photoURL: photoURL
                         }
                         updateUserProfile(userProfile)
-                            .then(result => {
+                            .then(() => {
                                 navigate(location?.state || "/");
                             })
-                            .catch(error => {
-
+                            .catch((error) => {
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Oops...",
+                                    text: `${error.message}`,
+                                });
                             })
                     })
             })
-            .catch(error => {
-
+            .catch((error) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${error.message}`,
+                });
             })
     }
 

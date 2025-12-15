@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from './SocialLogin';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -13,11 +14,19 @@ const Login = () => {
 
     const handleLogin = (data) => {
         signInUser(data.email, data.password)
-            .then(result => {
+            .then(() => {
+                Swal.fire({
+                    title: "Logged In successfully",
+                    icon: "success",
+                });
                 navigate(location?.state || '/');
             })
-            .catch(error => {
-
+            .catch((error) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${error.message}`,
+                });
             })
     }
 

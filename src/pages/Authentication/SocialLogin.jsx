@@ -1,20 +1,42 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
 
-    const {signInGoogle} = useAuth();
+    const { signInGoogle } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
 
     const handleGoogleSignIn = () => {
         signInGoogle()
             .then(result => {
-                navigate(location?.state || "/");
-            })
-            .catch(error => {
 
+                const userInfo = {
+                    email: result.user.email,
+                    displayName: result.user.displayName,
+                    photoURL: result.user.photoURL
+                }
+
+                axiosSecure.post("/users", userInfo)
+                    .then(() => {
+                        Swal.fire({
+                            title: "Logged In successfully",
+                            icon: "success",
+                        });
+                        navigate(location?.state || "/");
+                    })
+
+            })
+            .catch((error) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${error.message}`,
+                });
             })
     }
 
