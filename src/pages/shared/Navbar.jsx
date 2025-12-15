@@ -61,8 +61,16 @@ const Navbar = () => {
             <div className="navbar-end">
                 <div className='flex items-center gap-2'>
                     {
-                        user ?<> <img className='w-10 h-10 rounded-full' src={user.photoURL} alt={user.displayName} /> <button onClick={handleSignOut} className='btn'> Logout </button></> : <FaUser className='w-5 h-5' />
-                        
+                        user ? <>
+                            <div className="dropdown dropdown-end">
+                                <img tabIndex={0} className='w-12 h-12 rounded-full hover:cursor-pointer' role='button' src={user.photoURL} alt={user.displayName} />
+                                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-2">
+                                    <li><p>{user.displayName}</p></li>
+                                    <li><button className='btn'>Dashboard</button></li>
+                                    <li><button onClick={handleSignOut} className='btn'>Logout</button></li>
+                                </ul>
+                            </div></> : <FaUser className='w-5 h-5' />
+
                     }
                     {
                         user ? "" : <div className='flex items-center gap-2'>
