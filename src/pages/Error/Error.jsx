@@ -47,7 +47,7 @@ const Error = () => {
                 />
                 <div className="flex items-center justify-center font-sans">
                     <style>{customCss}</style>
-                    <Link to="/" className="relative inline-flex items-center justify-center p-[1.5px] bg-gray-300 rounded-full overflow-hidden group">
+                    <Link to="/" className="relative inline-flex items-center justify-center p-[1.5px] bg-gray-300 dark:bg-black rounded-full overflow-hidden group">
                         <div
                             className="absolute inset-0"
                             style={{
@@ -55,7 +55,7 @@ const Error = () => {
                                 animation: 'shimmer-spin 2.5s linear infinite',
                             }}
                         />
-                        <span className="relative z-10 inline-flex items-center justify-center w-full h-full px-8 py-3 bg-base-300 text-black rounded-full group-hover:bg-blue-400 hover:cursor-pointer transition-colors duration-500">
+                        <span className="relative z-10 inline-flex items-center justify-center w-full h-full px-8 py-3 bg-base-300 dark:bg-black text-black dark:text-white rounded-full group-hover:bg-blue-400 hover:cursor-pointer transition-colors duration-500">
                             Go Home
                         </span>
                     </Link>

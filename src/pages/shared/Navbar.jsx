@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
 import logo from "../../assets/logo.png";
 import { Link, NavLink } from 'react-router';
-import { FaUser } from 'react-icons/fa';
+import { FaMoon, FaUser } from 'react-icons/fa';
+import { FiSun } from "react-icons/fi";
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
+import useTheme from '../../hooks/useTheme';
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    const { theme, toggleTheme } = useTheme();
 
     const handleSignOut = (e) => {
         e.preventDefault();
@@ -60,6 +63,13 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <div className='flex items-center gap-2'>
+                    <button
+                        onClick={toggleTheme}
+                        className="btn btn-circle btn-ghost"
+                        aria-label="Toggle Theme"
+                    >
+                        {theme === "light" ? <FaMoon /> : <FiSun />}
+                    </button>
                     {
                         user ? <>
                             <div className="dropdown dropdown-end">
@@ -69,13 +79,13 @@ const Navbar = () => {
                                     <li><button className='btn'>Dashboard</button></li>
                                     <li><button onClick={handleSignOut} className='btn'>Logout</button></li>
                                 </ul>
-                            </div></> : <FaUser className='w-5 h-5' />
+                            </div></> : ""
 
                     }
                     {
                         user ? "" : <div className='flex items-center gap-2'>
                             <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost m-1">User <IoMdArrowDropdown /></div>
+                                <div tabIndex={0} role="button" className="btn btn-ghost rounded-full"><FaUser className='w-5 h-5' /><IoMdArrowDropdown /></div>
                                 <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                                     <li><Link to="/auth/login">Login</Link></li>
                                     <li><Link to="/auth/register">Register</Link></li>

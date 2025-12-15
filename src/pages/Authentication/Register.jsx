@@ -71,7 +71,7 @@ const Register = () => {
     }
 
     return (
-        <div className='pt-20 mb-20'>
+        <div className='pt-20 md:pb-20 bg-base-300 min-h-screen'>
             <title>Create a new account</title>
             <div className='mt-10 text-center text-2xl md:text-4xl font-bold'>
                 <h2>CREATE A NEW ACCOUNT !</h2>

@@ -31,7 +31,7 @@ const Login = () => {
     }
 
     return (
-        <div className='pt-20 mb-20'>
+        <div className='pt-20 bg-base-300 min-h-screen'>
             <title>Login to your account</title>
             <div className='mt-10 text-center text-2xl md:text-4xl font-bold'>
                 <h2>LOGIN TO YOUR ACCOUNT</h2>
