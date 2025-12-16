@@ -76,7 +76,7 @@ const Navbar = () => {
                                 <img tabIndex={0} className='w-12 h-12 rounded-full hover:cursor-pointer object-cover' role='button' src={user.photoURL} alt={user.displayName} />
                                 <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-2">
                                     <li><p>{user.displayName}</p></li>
-                                    <li><button className='btn'>Dashboard</button></li>
+                                    <li><Link to="/dashboard" className='btn'>Dashboard</Link></li>
                                     <li><button onClick={handleSignOut} className='btn'>Logout</button></li>
                                 </ul>
                             </div></> : ""
