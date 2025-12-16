@@ -2,18 +2,93 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import Swal from 'sweetalert2';
 
 const UserManagement = () => {
     const axiosSecure = useAxiosSecure();
 
-    const { data: users = [] } = useQuery({
+    const { refetch, data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/users`);
             return res.data;
         }
     });
-    console.log(users);
+
+    const handleMakeAdmin = user => {
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Make Admin !"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const roleInfo = { role: 'admin' }
+                axiosSecure.patch(`/users/${user._id}`, roleInfo)
+                    .then(res => {
+                        if (res.data.modifiedCount) {
+                            refetch();
+                            Swal.fire({
+                                title: `${user.displayName} marked as Admin !`,
+                                icon: "success",
+                            });
+                        }
+                    })
+            }
+        });
+    }
+
+    const handleMakeUser = user => {
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Make User !"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const roleInfo = { role: 'user' }
+                axiosSecure.patch(`/users/${user._id}`, roleInfo)
+                    .then(res => {
+                        if (res.data.modifiedCount) {
+                            refetch();
+                            Swal.fire({
+                                title: `${user.displayName} marked as user !`,
+                                icon: "success",
+                            });
+                        }
+                    })
+            }
+        });
+    }
+
+    const handleMakeCreator = user => {
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Make Creator !"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const roleInfo = { role: 'creator' }
+                axiosSecure.patch(`/users/${user._id}`, roleInfo)
+                    .then(res => {
+                        if (res.data.modifiedCount) {
+                            refetch();
+                            Swal.fire({
+                                title: `${user.displayName} marked as creator !`,
+                                icon: "success",
+                            });
+                        }
+                    })
+            }
+        });
+    }
 
     return (
         <div className='bg-base-300 min-h-screen'>
@@ -29,6 +104,7 @@ const UserManagement = () => {
                             </th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th>Actions</th>
                             <th></th>
                         </tr>
@@ -52,14 +128,15 @@ const UserManagement = () => {
                             </td>
                             <td>
                                 {user.email}
-                                <br />
-                                <span className="badge badge-ghost badge-sm">{user.role}</span>
+                            </td>
+                            <td>
+                                {user.role}
                             </td>
                             <td>
                                 <div className='flex gap-3'>
-                                    <button className='btn btn-soft btn-success'>Make Admin</button>
-                                    <button className='btn btn-soft btn-error'>Make User</button>
-                                    <button className='btn btn-soft btn-info'>Make Creator</button>
+                                    <button onClick={() => handleMakeAdmin(user)} className='btn btn-soft btn-success'>Make Admin</button>
+                                    <button onClick={() => handleMakeUser(user)} className='btn btn-soft btn-error'>Make User</button>
+                                    <button onClick={() => handleMakeCreator(user)} className='btn btn-soft btn-info'>Make Creator</button>
                                 </div>
                             </td>
                         </tr>)}
