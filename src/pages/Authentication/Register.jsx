@@ -5,11 +5,15 @@ import SocialLogin from './SocialLogin';
 import axios from 'axios';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { useState } from 'react';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { registerUser, updateUserProfile } = useAuth();
+    const [showPassword, setShowPassword] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
@@ -31,7 +35,8 @@ const Register = () => {
                         const userInfo = {
                             email: data.email,
                             displayName: data.name,
-                            photoURL: photoURL
+                            photoURL: photoURL,
+                            createdAt: new Date()
                         }
 
                         axiosSecure.post("/users", userInfo)
@@ -70,6 +75,11 @@ const Register = () => {
             })
     }
 
+    const handleTogglePassword = (event) => {
+        event.preventDefault();
+        setShowPassword(!showPassword);
+    }
+
     return (
         <div className='pt-20 md:pb-20 bg-base-300 min-h-screen'>
             <title>Create a new account</title>
@@ -102,11 +112,16 @@ const Register = () => {
 
                             {/* password */}
                             <label className="label">Password</label>
-                            <input type="password" {...register('password', {
+                            <input type={showPassword ? "text" : "password"} {...register('password', {
                                 required: true,
                                 minLength: 6,
                                 pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/
                             })} className="input" placeholder="Password" />
+                            <div onClick={handleTogglePassword} className='hover:cursor-pointer text-xl top-69 right-15 absolute z-50'>
+                                {
+                                    showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                }
+                            </div>
                             {
                                 errors.password?.type === 'required' && <p className='text-red-500'>Password is required.</p>
                             }

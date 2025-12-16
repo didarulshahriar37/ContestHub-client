@@ -8,8 +8,8 @@ const Footer = () => {
         <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
             <nav className="grid grid-flow-col gap-4">
                 <Link to="/">
-                    <div className='flex items-center gap-2 font-bold'>
-                        <img className='w-10 h-8' src={logo} alt="" />
+                    <div className='flex items-center gap-1 font-bold'>
+                        <img className='w-12 h-12' src={logo} alt="" />
                         <p className='text-2xl'>ContestHub</p>
                     </div>
                 </Link>

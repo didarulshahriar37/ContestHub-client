@@ -8,6 +8,17 @@ import Error from "../pages/Error/Error";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import UserManagement from "../pages/Dashboard/Users Management/UserManagement";
+import AdminRoute from "./AdminRoute";
+import ApproveCreators from "../pages/Dashboard/Approve Creators/ApproveCreators";
+import ManageContests from "../pages/Dashboard/Manage Contests/ManageContests";
+import HomePage from "../pages/Dashboard/Homepage/HomePage";
+import CreatorRoute from "./CreatorRoute";
+import AddContests from "../pages/Dashboard/Add Contests/AddContests";
+import MyContests from "../pages/Dashboard/My Contests/MyContests";
+import UserRoute from "./UserRoute";
+import ParticipatedContests from "../pages/Dashboard/Participated Contests/ParticipatedContests";
+import WinningContests from "../pages/Dashboard/Winning Contests/WinningContests";
+import MyProfile from "../pages/Dashboard/My Profile/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -40,11 +51,40 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        path: "/dashboard"
+        path: "/dashboard",
+        Component: HomePage
       },
       {
         path:'manage-users',
-        Component: UserManagement
+        element: <AdminRoute><UserManagement></UserManagement></AdminRoute>
+      },
+      {
+        path: 'approve-creators',
+        element: <AdminRoute><ApproveCreators></ApproveCreators></AdminRoute>
+      },
+      {
+        path: 'manage-contests',
+        element: <AdminRoute><ManageContests></ManageContests></AdminRoute>
+      },
+      {
+        path: 'add-contest',
+        element: <CreatorRoute><AddContests></AddContests></CreatorRoute>
+      },
+      {
+        path: 'my-contests',
+        element: <CreatorRoute><MyContests></MyContests></CreatorRoute>
+      },
+      {
+        path: 'participated-contests',
+        element: <UserRoute><ParticipatedContests></ParticipatedContests></UserRoute>
+      },
+      {
+        path: 'winning-contests',
+        element: <UserRoute><WinningContests></WinningContests></UserRoute>
+      },
+      {
+        path: 'my-profile',
+        element: <UserRoute><MyProfile></MyProfile></UserRoute>
       }
     ]
   },

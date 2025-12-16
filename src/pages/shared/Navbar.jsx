@@ -51,8 +51,8 @@ const Navbar = () => {
                         {lists}
                     </ul>
                 </div>
-                <Link to='/' className="flex gap-2 items-center">
-                    <img className='w-10 h-8' src={logo} alt="ContestHub Logo" />
+                <Link to='/' className="flex gap-1 items-center">
+                    <img className='w-12 h-12' src={logo} alt="ContestHub Logo" />
                     <p className='text-xl font-bold'>ContestHub</p>
                 </Link>
             </div>
