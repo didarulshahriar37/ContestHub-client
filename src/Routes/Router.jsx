@@ -7,6 +7,7 @@ import Register from "../pages/Authentication/Register";
 import Error from "../pages/Error/Error";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
+import UserManagement from "../pages/Dashboard/Users Management/UserManagement";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +36,17 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children: [
+      {
+        index: true,
+        path: "/dashboard"
+      },
+      {
+        path:'manage-users',
+        Component: UserManagement
+      }
+    ]
   },
   {
     path: "/*",
