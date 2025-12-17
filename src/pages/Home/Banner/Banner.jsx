@@ -9,6 +9,7 @@ import slide1 from "../../../assets/slide1.jpg";
 import slide2 from "../../../assets/slide2.jpg";
 import slide3 from "../../../assets/slide3.jpg";
 import slide4 from "../../../assets/slide4.jpg";
+import { Link } from 'react-router';
 
 const Banner = () => {
     return (
@@ -35,7 +36,7 @@ const Banner = () => {
                             <div className='space-y-4 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Create. Compete. Win.</h3>
                                 <p className='text-sm md:text-lg'>Join creative contests, showcase your talent, and earn rewards.</p>
-                                <button className='btn mt-5'>Explore Contests</button>
+                                <Link to="/all-contests" className='btn mt-5'>Explore Contests</Link>
                             </div>
                         </div>
                     </div>
@@ -76,7 +77,7 @@ const Banner = () => {
                             <div className='space-y-4 px-2 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Host Contests with Ease</h3>
                                 <p className='text-sm md:text-lg'>Create contests, manage submissions, select winners — all from one dashboard.</p>
-                                <button className='btn mt-5'>Be a Host</button>
+                                <button className='btn mt-5'>Be a creator</button>
                             </div>
                         </div>
                     </div>

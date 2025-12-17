@@ -19,6 +19,8 @@ import UserRoute from "./UserRoute";
 import ParticipatedContests from "../pages/Dashboard/Participated Contests/ParticipatedContests";
 import WinningContests from "../pages/Dashboard/Winning Contests/WinningContests";
 import MyProfile from "../pages/Dashboard/My Profile/MyProfile";
+import Loading from "../pages/shared/Loading";
+import AllContests from "../pages/All Contests/AllContests";
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +29,21 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home
+        Component: Home,
+        loader: async () => {
+          const res = await fetch("http://localhost:3002/popular-contests");
+          return res.json();
+        },
+        hydrateFallbackElement: <Loading></Loading>
+      },
+      {
+        path: "all-contests",
+        Component: AllContests,
+        loader: async () => {
+          const res = await fetch("http://localhost:3002/all-contests");
+          return res.json();
+        },
+        hydrateFallbackElement: <Loading></Loading>
       }
     ]
   },
@@ -55,7 +71,7 @@ export const router = createBrowserRouter([
         Component: HomePage
       },
       {
-        path:'manage-users',
+        path: 'manage-users',
         element: <AdminRoute><UserManagement></UserManagement></AdminRoute>
       },
       {
@@ -64,7 +80,12 @@ export const router = createBrowserRouter([
       },
       {
         path: 'manage-contests',
-        element: <AdminRoute><ManageContests></ManageContests></AdminRoute>
+        element: <AdminRoute><ManageContests></ManageContests></AdminRoute>,
+        loader: async () => {
+          const res = await fetch("http://localhost:3002/manage-contests");
+          return res.json();
+        },
+        hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: 'add-contest',
