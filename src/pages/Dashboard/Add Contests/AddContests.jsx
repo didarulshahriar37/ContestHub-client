@@ -33,14 +33,14 @@ const AddContests = () => {
                     task_details: data.task_details,
                     entry_price: Number(data.entry_price),
                     prize_money: Number(data.prize_money),
-                    created_at: new Date().toISOString(),
-                    deadline: new Date(data.deadline).toISOString(),
+                    created_at: new Date(),
+                    deadline: new Date(data.deadline),
                     contest_type: data.contest_type,
                     creator_name: data.creator_name,
                     creator_email: data.creator_email,
                     approval_status: "pending"
                 };
-                return axiosSecure.post('/manage-contests', contestData);
+                return axiosSecure.post('/my-contests', contestData);
             })
             .then(res => {
                 if (res.data.insertedId) {
