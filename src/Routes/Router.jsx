@@ -21,6 +21,7 @@ import WinningContests from "../pages/Dashboard/Winning Contests/WinningContests
 import MyProfile from "../pages/Dashboard/My Profile/MyProfile";
 import Loading from "../pages/shared/Loading";
 import AllContests from "../pages/All Contests/AllContests";
+import ContestDetails from "../pages/ContestDetails/ContestDetails";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,15 @@ export const router = createBrowserRouter([
           return res.json();
         },
         hydrateFallbackElement: <Loading></Loading>
+      },
+      {
+        path: "contest-details/:id",
+        loader: async () => {
+          const res = await fetch("http://localhost:3002/all-contests");
+          return res.json();
+        },
+        hydrateFallbackElement: <Loading></Loading>,
+        element: <PrivateRoute><ContestDetails></ContestDetails></PrivateRoute>
       }
     ]
   },

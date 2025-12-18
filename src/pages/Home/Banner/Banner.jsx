@@ -36,7 +36,7 @@ const Banner = () => {
                             <div className='space-y-4 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Create. Compete. Win.</h3>
                                 <p className='text-sm md:text-lg'>Join creative contests, showcase your talent, and earn rewards.</p>
-                                <Link to="/all-contests" className='btn mt-5'>Explore Contests</Link>
+                                <Link to="/all-contests" className='btn btn-soft btn-primary mt-5'>Explore Contests</Link>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ const Banner = () => {
                             <div className='space-y-4 px-2 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Compete & Get Rewarded</h3>
                                 <p className='text-sm md:text-lg'>Secure payments, fair judging, and real prizes for top performers.</p>
-                                <button className='btn mt-5'>See Leaderboard</button>
+                                <button className='btn btn-soft btn-primary mt-5'>See Leaderboard</button>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ const Banner = () => {
                             <div className='space-y-4 px-2 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Host Contests with Ease</h3>
                                 <p className='text-sm md:text-lg'>Create contests, manage submissions, select winners — all from one dashboard.</p>
-                                <button className='btn mt-5'>Be a creator</button>
+                                <button className='btn btn-soft btn-primary mt-5'>Be a creator</button>
                             </div>
                         </div>
                     </div>

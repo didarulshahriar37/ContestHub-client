@@ -34,8 +34,8 @@ const Navbar = () => {
     const lists = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/all-contests">All Contests</NavLink></li>
-        <li><NavLink>About Us</NavLink></li>
-        <li><NavLink>Contact</NavLink></li>
+        <li><NavLink to="/about-us">About Us</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li>
     </>
 
     return (
@@ -53,7 +53,7 @@ const Navbar = () => {
                 </div>
                 <Link to='/' className="flex gap-1 items-center">
                     <img className='w-12 h-12' src={logo} alt="ContestHub Logo" />
-                    <p className='text-xl font-bold'>ContestHub</p>
+                    <p className='text-xl font-bold'><span className='text-sky-700'>Contest</span>Hub</p>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -76,8 +76,8 @@ const Navbar = () => {
                                 <img tabIndex={0} className='w-12 h-12 rounded-full hover:cursor-pointer object-cover' role='button' src={user.photoURL} alt={user.displayName} />
                                 <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm space-y-2">
                                     <li><p>{user.displayName}</p></li>
-                                    <li><Link to="/dashboard" className='btn'>Dashboard</Link></li>
-                                    <li><button onClick={handleSignOut} className='btn'>Logout</button></li>
+                                    <li><Link to="/dashboard" className='btn btn-outline btn-primary'>Dashboard</Link></li>
+                                    <li><button onClick={handleSignOut} className='btn btn-outline btn-error'>Logout</button></li>
                                 </ul>
                             </div></> : ""
 

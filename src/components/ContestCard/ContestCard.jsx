@@ -1,5 +1,6 @@
 import React from 'react';
 import AOS from "aos";
+import { Link } from 'react-router';
 
 const ContestCard = ({ contest }) => {
     console.log(contest);
@@ -30,11 +31,11 @@ const ContestCard = ({ contest }) => {
                 </p>
 
                 <div className="card-actions justify-end mt-4">
-                    <button
-                        className="btn btn-primary btn-sm"
+                    <Link to={`/contest-details/${contest._id}`}
+                        className="btn btn-soft btn-primary btn-sm"
                     >
                         Details
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

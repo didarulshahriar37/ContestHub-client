@@ -1,5 +1,17 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 @plugin "daisyui" {
-   themes: light, dark
- }
+  themes: light, dark
+}
+
+* {
+  font-family: "Lora", serif;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+.active {
+  border-bottom: 2px solid blue;
+  color: blue;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner/Banner';
 import { useLoaderData } from 'react-router';
 import PopularContests from './Popular Contests/PopularContests';
+import Winners from './Winners/Winners';
 
 const Home = () => {
 
@@ -11,6 +12,7 @@ const Home = () => {
         <div className=''>
             <Banner></Banner>
             <PopularContests contests = {contests}></PopularContests>
+            <Winners></Winners>
         </div>
     );
 };
