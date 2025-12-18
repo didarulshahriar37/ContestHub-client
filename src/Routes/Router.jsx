@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: async () => {
-          const res = await fetch("http://localhost:3002/popular-contests");
+          const res = await fetch("https://contest-hub-server-green.vercel.app/popular-contests");
           return res.json();
         },
         hydrateFallbackElement: <Loading></Loading>
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         path: "all-contests",
         Component: AllContests,
         loader: async () => {
-          const res = await fetch("http://localhost:3002/all-contests");
+          const res = await fetch("https://contest-hub-server-green.vercel.app/all-contests");
           return res.json();
         },
         hydrateFallbackElement: <Loading></Loading>
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
       {
         path: "contest-details/:id",
         loader: async () => {
-          const res = await fetch("http://localhost:3002/all-contests");
+          const res = await fetch("https://contest-hub-server-green.vercel.app/all-contests");
           return res.json();
         },
         hydrateFallbackElement: <Loading></Loading>,
@@ -92,7 +92,7 @@ export const router = createBrowserRouter([
         path: 'manage-contests',
         element: <AdminRoute><ManageContests></ManageContests></AdminRoute>,
         loader: async () => {
-          const res = await fetch("http://localhost:3002/manage-contests");
+          const res = await fetch("https://contest-hub-server-green.vercel.app/manage-contests");
           return res.json();
         },
         hydrateFallbackElement: <Loading></Loading>

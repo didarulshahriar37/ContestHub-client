@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3002'
+    baseURL: 'https://contest-hub-server-green.vercel.app'
 })
 
 const useAxios = () => {

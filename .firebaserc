@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "contest-hub-e3f79",
+    "prod": "contest-hub-e3f79"
+  },
+  "targets": {},
+  "etags": {}
+}
