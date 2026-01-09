@@ -107,9 +107,9 @@ const FAQ = () => {
             </div>
           ))}
         </div>
-        <p className="text-center text-gray-600 dark:text-gray-400 text-base mt-12">
+        <p className="text-center text-base mt-12">
           Didn’t find the answer you are looking for?{' '}
-          <a href="/contact" className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition">
+          <a href="/contact" className="font-medium text-blue-600 hover:text-blue-700 hover:underline transition">
             Contact our support
           </a>
         </p>

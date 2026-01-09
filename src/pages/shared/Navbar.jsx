@@ -32,10 +32,18 @@ const Navbar = () => {
     }
 
     const lists = <>
-        <li><NavLink to="/">Home</NavLink></li>
+        {
+            user ? <><li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/all-contests">All Contests</NavLink></li>
+        <li><NavLink to="/be-a-creator">Be a Creator</NavLink></li>
+        <li><NavLink to="/about-us">About Us</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li> </>
+        : 
+        <><li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/all-contests">All Contests</NavLink></li>
         <li><NavLink to="/about-us">About Us</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li></>
+        }
     </>
 
     return (
@@ -86,9 +94,9 @@ const Navbar = () => {
                         user ? "" : <div className='flex items-center gap-2'>
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className="btn btn-ghost rounded-full"><FaUser className='w-5 h-5' /><IoMdArrowDropdown /></div>
-                                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                                    <li><Link to="/auth/login">Login</Link></li>
-                                    <li><Link to="/auth/register">Register</Link></li>
+                                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box space-y-2 z-1 w-52 p-2 shadow-sm">
+                                    <li><Link className='btn btn-primary btn-outline' to="/auth/login">Login</Link></li>
+                                    <li><Link className='btn btn-success btn-outline' to="/auth/register">Register</Link></li>
                                 </ul>
                             </div>
                         </div>
