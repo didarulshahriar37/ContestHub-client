@@ -3,9 +3,8 @@ import AOS from "aos";
 import { Link } from 'react-router';
 
 const ContestCard = ({ contest }) => {
-    console.log(contest);
     return (
-        <div data-aos="fade-up" className="card shadow-xl rounded-lg bg-base-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300 mt-5">
+        <div className="card shadow-xl rounded-lg bg-base-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300 mt-5">
             <figure>
                 <img
                     src={contest.image}

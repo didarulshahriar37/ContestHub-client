@@ -13,7 +13,7 @@ import { Link } from 'react-router';
 
 const Banner = () => {
     return (
-        <div className='pt-16'>
+        <div className='pt-20 px-5 md:px-20'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -25,14 +25,14 @@ const Banner = () => {
                     clickable: true,
                 }}
                 modules={[Autoplay, Pagination]}
-                className="mySwiper h-75 md:h-158 shadow-md"
+                className="mySwiper h-75 md:h-150 shadow-md"
             >
                 <SwiperSlide>
-                    <div className='relative md:px-15 py-15 md:py-0 h-75 md:h-158 flex items-center text-white bg-center bg-cover'
+                    <div className='relative md:px-15 py-15 md:py-0 h-75 md:h-150 flex items-center text-white bg-center bg-cover'
                         style={{
                             backgroundImage: `url(${slide1})`
                         }}>
-                        <div className='absolute inset-0 bg-linear-to-b  md:bg-linear-to-r from-black/70 to-black/1'>
+                        <div className='absolute inset-0 bg-black/40'>
                             <div className='space-y-4 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Create. Compete. Win.</h3>
                                 <p className='text-sm md:text-lg'>Join creative contests, showcase your talent, and earn rewards.</p>
@@ -46,7 +46,7 @@ const Banner = () => {
                         style={{
                             backgroundImage: `url(${slide2})`
                         }}>
-                        <div className='absolute inset-0 bg-linear-to-b  md:bg-linear-to-r from-black/70 to-black/1'>
+                        <div className='absolute inset-0 bg-black/40'>
                             <div className='space-y-4 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Contests for Every Creator</h3>
                                 <p className='text-sm md:text-lg'>Design, writing, business ideas, gaming reviews, and more — all in one place.</p>
@@ -59,7 +59,7 @@ const Banner = () => {
                         style={{
                             backgroundImage: `url(${slide3})`
                         }}>
-                        <div className='absolute inset-0 bg-linear-to-b  md:bg-linear-to-r from-black/70 to-black/1'>
+                        <div className='absolute inset-0 bg-black/40'>
                             <div className='space-y-4 px-2 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Compete & Get Rewarded</h3>
                                 <p className='text-sm md:text-lg'>Secure payments, fair judging, and real prizes for top performers.</p>
@@ -73,7 +73,7 @@ const Banner = () => {
                         style={{
                             backgroundImage: `url(${slide4})`
                         }}>
-                        <div className='absolute inset-0 bg-linear-to-b  md:bg-linear-to-r from-black/70 to-black/1'>
+                        <div className='absolute inset-0 bg-black/40'>
                             <div className='space-y-4 px-2 md:ml-15 mt-3 md:mt-40 relative z-10 text-center md:text-start max-w-lg'>
                                 <h3 className='flex justify-center md:justify-normal items-center font-bold gap-2 text-xl md:text-4xl'>Host Contests with Ease</h3>
                                 <p className='text-sm md:text-lg'>Create contests, manage submissions, select winners — all from one dashboard.</p>

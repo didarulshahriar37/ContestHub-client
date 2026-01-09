@@ -22,6 +22,7 @@ import MyProfile from "../pages/Dashboard/My Profile/MyProfile";
 import Loading from "../pages/shared/Loading";
 import AllContests from "../pages/All Contests/AllContests";
 import ContestDetails from "../pages/ContestDetails/ContestDetails";
+import Winners from "../pages/Home/Winners/Winners";
 
 export const router = createBrowserRouter([
   {
@@ -53,8 +54,8 @@ export const router = createBrowserRouter([
           return res.json();
         },
         hydrateFallbackElement: <Loading></Loading>,
-        element: <PrivateRoute><ContestDetails></ContestDetails></PrivateRoute>
-      }
+        element: <ContestDetails></ContestDetails>
+      },
     ]
   },
   {
