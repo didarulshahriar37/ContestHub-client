@@ -10,7 +10,7 @@ const Footer = () => {
                 <Link to="/">
                     <div className='flex items-center gap-1 font-bold'>
                         <img className='w-12 h-12' src={logo} alt="" />
-                        <p className='text-2xl'>ContestHub</p>
+                        <p className='text-2xl'><span className='text-primary'>Contest</span>Hub</p>
                     </div>
                 </Link>
             </nav>
@@ -25,7 +25,7 @@ const Footer = () => {
                 </div>
             </nav>
             <aside>
-                <p>Copyright © 2025 ContestHub</p>
+                <p>Copyright © 2026 ContestHub</p>
             </aside>
         </footer>
     );

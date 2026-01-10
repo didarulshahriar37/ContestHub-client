@@ -23,6 +23,8 @@ import Loading from "../pages/shared/Loading";
 import AllContests from "../pages/All Contests/AllContests";
 import ContestDetails from "../pages/ContestDetails/ContestDetails";
 import Winners from "../pages/Home/Winners/Winners";
+import AboutUs from "../pages/AboutUs/AboutUs";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loading></Loading>,
         element: <ContestDetails></ContestDetails>
       },
+      {
+        path: "/about-us",
+        Component: AboutUs
+      },
+      {
+        path: "/contact",
+        Component: ContactUs
+      }
     ]
   },
   {
