@@ -26,6 +26,7 @@ import Winners from "../pages/Home/Winners/Winners";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import Overview from "../pages/Dashboard/Overview/Overview";
+import BeACreator from "../pages/BeACreator/BeACreator";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         Component: ContactUs
+      },
+      {
+        path: "be-a-creator",
+        Component: BeACreator
       }
     ]
   },
