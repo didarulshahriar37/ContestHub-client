@@ -33,7 +33,7 @@ const Services = () => {
     return (
         <div className='mt-20 mb-15'>
             <h2 className='text-2xl md:text-4xl font-bold text-center mb-5'>Our Services</h2>
-            <p className="text-gray-600 text-center md:text-2xl mb-15">
+            <p className="text-center md:text-2xl mb-15">
                 Empowering creators, participants, and admins to make contests engaging, fun, and rewarding.
             </p>
 
