@@ -1,7 +1,7 @@
 import React from 'react';
 import useTheme from '../hooks/useTheme';
 import {  FaMoon, FaUserPlus, FaUsers } from 'react-icons/fa';
-import { MdAssignmentAdd, MdManageSearch } from "react-icons/md";
+import { MdAssignmentAdd, MdManageSearch, MdScreenSearchDesktop } from "react-icons/md";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import { LuTableOfContents } from "react-icons/lu";
 import { CgProfile } from "react-icons/cg";
@@ -37,7 +37,7 @@ const DashboardLayout = () => {
                             </label>
                             <Link to="/" className="px-4 flex gap-2 items-center">
                                 <img className='w-12 h-12' src={logo} alt="" />
-                                <p className='text-xl font-bold'><span className='text-sky-700'>Contest</span>Hub</p>
+                                <p className='text-xl font-bold'><span className='text-primary'>Contest</span>Hub</p>
                             </Link>
                         </div>
                         <div className='mr-10'>
@@ -72,6 +72,12 @@ const DashboardLayout = () => {
                             {/* List item */}
                             {
                                 role === 'admin' && <>
+                                    <li>
+                                        <NavLink to="/dashboard/overview" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Overview">
+                                            <MdScreenSearchDesktop className='w-5 h-5' />
+                                            <span className="is-drawer-close:hidden">Overview</span>
+                                        </NavLink>
+                                    </li>
                                     <li>
                                         <NavLink to="/dashboard/manage-users" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Users Management">
                                             <FaUsers className='w-5 h-5' />

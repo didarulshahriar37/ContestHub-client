@@ -9,7 +9,7 @@ const HomePage = () => {
     const {role} = useRole();
 
     return (
-        <div className="flex flex-col items-center justify-center bg-base-300">
+        <div className="flex flex-col items-center justify-center bg-base-300 min-h-screen">
             <Lottie
                 animationData={animationData}
                 loop

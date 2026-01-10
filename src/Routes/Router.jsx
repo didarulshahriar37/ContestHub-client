@@ -25,6 +25,7 @@ import ContestDetails from "../pages/ContestDetails/ContestDetails";
 import Winners from "../pages/Home/Winners/Winners";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import ContactUs from "../pages/ContactUs/ContactUs";
+import Overview from "../pages/Dashboard/Overview/Overview";
 
 export const router = createBrowserRouter([
   {
@@ -104,6 +105,15 @@ export const router = createBrowserRouter([
         element: <AdminRoute><ManageContests></ManageContests></AdminRoute>,
         loader: async () => {
           const res = await fetch("https://contest-hub-server-green.vercel.app/manage-contests");
+          return res.json();
+        },
+        hydrateFallbackElement: <Loading></Loading>
+      },
+      {
+        path: "overview",
+        element: <AdminRoute><Overview></Overview></AdminRoute>,
+        loader: async () => {
+          const res = await fetch("https://contest-hub-server-green.vercel.app/all-contests");
           return res.json();
         },
         hydrateFallbackElement: <Loading></Loading>
