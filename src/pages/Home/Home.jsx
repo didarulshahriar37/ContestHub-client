@@ -6,6 +6,7 @@ import Winners from './Winners/Winners';
 import ContestCategories from './ContestCategories/ContestCategories';
 import Services from './Services/Services';
 import FAQ from './FAQ/FAQ';
+import OurFeatures from './OurFeatures/OurFeatures';
 
 const Home = () => {
 
@@ -18,6 +19,7 @@ const Home = () => {
             <ContestCategories contests={contests}></ContestCategories>
             <Winners></Winners>
             <Services></Services>
+            <OurFeatures></OurFeatures>
             <FAQ></FAQ>
         </div>
     );
