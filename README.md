@@ -3,11 +3,23 @@ ContestHub - A Contest Creation Platform
 # LIVE SITE LINK
 [ContestHub](https://contest-hub-e3f79.web.app/)
 # FEATURES
-* 
-* 
-* 
-* 
-* Responsive design for seamless experience across all devices
+- Secure Authentication System <br>
+Firebase-based authentication with protected routes and role-based access (Admin, Creator, User).
+
+- Contest Participation & Creation <br>
+Users can explore and join approved contests, while creators can create and manage their own contests.
+
+- Creator Application & Approval Workflow <br>
+Users can apply to become creators, and admins can approve or reject applications with automatic role updates.
+
+- Admin Dashboard & Management <br>
+Admins can manage users, approve or reject contests, and control creator permissions efficiently.
+
+- Modern & Interactive UI <br>
+Built with React, Tailwind CSS, and DaisyUI, enhanced with SweetAlert2 and Swiper for better UX.
+
+- Responsive Design <br>
+Seamless experience across mobile, tablet, and desktop devices.
 
 ---
 
